@@ -5,12 +5,12 @@ Build all of your functions for displaying and gathering information below (GUI)
 // app is the function called to start the entire application
 function app(people) {
     var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
-    switch (searchType) {
+    switch (searchType.toLowerCase()) {
         case 'yes':
             searchByName();
             break;
         case 'no':
-            window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.");
+            window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase;
             break;
         default:
             window.alert("Please enter a valid answer.");
@@ -23,8 +23,8 @@ function searchByName() {
     var firstName = prompt("What is the person's first name?");
     var lastName = prompt("What is the person's last name?");
     data.filter(function(el) {
-        if ((el.firstName === firstName) && (el.lastName === lastName)) {
-            displayOption(firstName, lastName);
+        if ((el.firstName.toLowerCase === firstName.toLowerCase) && (el.lastName.toLowerCase === lastName.toLowerCase)) {
+            displayOption(el.firstName, el.lastName);
         }
     })
 
@@ -36,6 +36,7 @@ function displayOption(firstName, lastName) {
     switch (displayOption) {
         case "info":
             // TODO: get person's info
+            displayPerson(data[1].join);
             break;
         case "family":
             // TODO: get person's family
@@ -80,6 +81,8 @@ function mainMenu(person, people) {
         var personInfo = "First Name: " + person.firstName + "\n";
         personInfo += "Last Name: " + person.lastName + "\n";
         // TODO: finish getting the rest of the information to display
+
+
         alert(personInfo);
     }
 
