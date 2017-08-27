@@ -11,6 +11,7 @@ function app(people) {
             break;
         case 'no':
             window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase;
+            // TODO: add case or ife/else stmt for end vs continue to search by characteristics
             break;
         default:
             window.alert("Please enter a valid answer.");
@@ -22,9 +23,17 @@ function app(people) {
 function searchByName() {
     var firstName = prompt("What is the person's first name?");
     var lastName = prompt("What is the person's last name?");
-    data.filter(function(el) {
-        if ((el.firstName.toLowerCase === firstName.toLowerCase) && (el.lastName.toLowerCase === lastName.toLowerCase)) {
-            displayOption(el.firstName, el.lastName);
+    var count = 0;
+
+    var nameMatch = data.filter(function(el) {
+        if ((el.firstName.toLowerCase() === firstName.toLowerCase()) && (el.lastName.toLowerCase() === lastName.toLowerCase())) {
+            displayOption(firstName, lastName);
+            return true;
+        } else {
+            count++;
+            if (count === data.length) {
+                window.alert(firstName + lastName + " was not found.")
+            }
         }
     })
 
@@ -36,7 +45,7 @@ function displayOption(firstName, lastName) {
     switch (displayOption) {
         case "info":
             // TODO: get person's info
-            displayPerson(data[1].join);
+            // displayPerson(data[1].join);
             break;
         case "family":
             // TODO: get person's family
