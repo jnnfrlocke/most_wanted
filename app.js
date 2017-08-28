@@ -23,7 +23,6 @@ function app(people) {
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people) {
-
     /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
     if (!person) {
@@ -114,16 +113,7 @@ function getFamily(person, people) {
         })
 
     }
-    // Menu function to call once you find who you are looking for
-    function mainMenu(person, people) {
 
-        /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
-        if (!person) {
-            alert("Could not find that individual.");
-            return app(people); // restart
-        }
-    }
 
     function displayOption(firstName, lastName) {
         prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
@@ -214,25 +204,14 @@ function getFamily(person, people) {
         }
     }
 
-    // Menu function to call once you find who you are looking for
-    function mainMenu(person, people) {
-
-        /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
-
-        if (!person) {
-            alert("Could not find that individual.");
-            return app(people); // restart
-        } <<
-        << << < HEAD
-    } ===
-    === =
 
     // helper function to pass in as default promptFor validation
     function chars(input) {
         return true; // default validation only
 
-        >>>
-        >>> > 7 d3ead8896e166e116d8a7dde324762192a6ee73
+        // >>>
+        // >>>
+        // > 7 d3ead8896e166e116d8a7dde324762192a6ee73
 
         // alerts a list of people
         function displayPeople(people) {
@@ -266,17 +245,22 @@ function getFamily(person, people) {
         }
 
         <<
-        << << < HEAD
+        <<
+        <<
+        < HEAD
         // helper function to pass in as default promptFor validation
         function chars(input) {
             return true; // default validation only
         }
 
         ===
-        === =
+        ===
+        =
         // helper function to pass in as default promptFor validation
         function chars(input) {
             return true; // default validation only
         }
     } >>>
-    >>> > 7 d3ead8896e166e116d8a7dde324762192a6ee73
+    >>>
+    >
+    7 d3ead8896e166e116d8a7dde324762192a6ee73
