@@ -2,7 +2,6 @@
 Build all of your functions for displaying and gathering information below (GUI).
 */
 
-}
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
 
@@ -24,7 +23,7 @@ function mainMenu(person, people){
     break;
     case "descendants":
     // TODO: get person's descendants
-    displayPeople(displayDescendants(person, people));
+    displayPeople(getDescendants(person, people));
     break;
     case "restart":
     app(people); // restart
@@ -52,64 +51,26 @@ function app(people) {
             app(people); // restart app
             break;
     }
-
 }
 
-    function searchByName(people) {
-        var firstName = promptFor("What is the person's first name?", chars);
-        var lastName = promptFor("What is the person's last name?", chars);
-    }
+function searchByName(people){
+  var firstName = prompt("What is the person's first name?");
+  var lastName = prompt("What is the person's last name?");
 
-    function app(people) {
-        var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
-        switch (searchType.toLowerCase()) {
-            case 'yes':
-                searchByName();
-                break;
-            case 'no':
-                window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase;
-                // TODO: search by traits
-                break;
-            default:
-                window.alert("Please enter a valid answer."); //
-                app(people); // restart app
-                break;
+  var nameMatch = data.filter(function(el){
+    if ((el.firstName.toLowerCase() === firstName.toLowerCase()) && (el.lastName.toLowerCase() === lastName.toLowerCase())){
+        displayOption(firstName, lastName);
+        return true;
+    } 
+    else{
+          count++;
+          if(count === data.length){
+            window.alert(firstName + lastName + " was not found.");
+          }
         }
-
-    }
-
-    function searchByName(people) {
-        var firstName = prompt("What is the person's first name?");
-        var lastName = prompt("What is the person's last name?");
-
-        var nameMatch = data.filter(function(el) {
-            if ((el.firstName.toLowerCase() === firstName.toLowerCase()) && (el.lastName.toLowerCase() === lastName.toLowerCase())) {
-                displayOption(firstName, lastName);
-                return true;
-            } else {
-                count++;
-                if (count === data.length) {
-                    window.alert(firstName + lastName + " was not found.")
-                }
+  })
 }
-}
-}
-    //     if (!person) {
-    //         alert("Could not find that individual.");
-    //         return app(people); // restart
-    //     }
-    // }
 
-        // helper function to pass in as default promptFor validation
-        function chars(input) {
-            return true; // default validation only
-            // alerts a list of people
-        }
-            function displayPeople(people) {
-                alert(people.map(function(person) {
-                    return person.firstName + " " + person.lastName;
-                }).join("\n"));
-            }
 function displayOption(firstName, lastName) {
     prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
@@ -123,7 +84,7 @@ function displayOption(firstName, lastName) {
             break;
         case "descendants":
             // TODO: get person's descendants
-            displayDescendants(person, people);
+            displayPeople(getDescendants(person, people));
             break;
         case "restart":
             app(people); // restart
@@ -197,7 +158,7 @@ function displayPerson(person) {
 
 
 
-function displayDescendants(person, people){
+function getDescendants(person, people){
   //this should be called when user enters "descendants"
   //The last 11 people have parents, so the loop can start at 10 for i
   //Loops through each object in data array(outter array) and compares "parents" index to "id" of person(inner loop)
@@ -239,6 +200,8 @@ function getFamily(person, people){
 
   getSibling(person, people, family);
   console.log(family);
+  getDescendants(person, people);
+
   displayPeople(family);
 }
 
