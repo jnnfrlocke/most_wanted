@@ -3,7 +3,6 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
-<<<<<<< HEAD
 function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
@@ -108,8 +107,6 @@ function searchByName(people){
   var lastName = promptFor("What is the person's last name?", chars);
 }
 
-=======
->>>>>>> 7d3ead8896e166e116d8a7dde324762192a6ee73
 function app(people) {
     var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
     switch (searchType) {
@@ -343,17 +340,13 @@ function getFamily(person, people) {
             alert("Could not find that individual.");
             return app(people); // restart
         }
-<<<<<<< HEAD
     }
-=======
 
         // helper function to pass in as default promptFor validation
         function chars(input) {
             return true; // default validation only
-
->>>>>>> 7d3ead8896e166e116d8a7dde324762192a6ee73
-
             // alerts a list of people
+        }
             function displayPeople(people) {
                 alert(people.map(function(person) {
                     return person.firstName + " " + person.lastName;
@@ -384,16 +377,13 @@ function getFamily(person, people) {
                 return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
             }
 
-<<<<<<< HEAD
         // helper function to pass in as default promptFor validation
         function chars(input) {
             return true; // default validation only
         }
     
-=======
-            // helper function to pass in as default promptFor validation
+                // helper function to pass in as default promptFor validation
             function chars(input) {
                 return true; // default validation only
             }
         }
->>>>>>> 7d3ead8896e166e116d8a7dde324762192a6ee73
