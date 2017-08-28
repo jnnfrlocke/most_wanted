@@ -3,7 +3,6 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // app is the function called to start the entire application
-<<<<<<< HEAD
 function app(people){
   var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   switch(searchType){
@@ -75,10 +74,23 @@ function displayDescendants(person, people){
   }
 }
 
+function getFamily(person, people){
+  //called when user enters "family"
+  //Need access person's info to get parents and currentSpouse.
+  //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling.
+  //Use displayDecendants function to retrieve children.
+  //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
+//   var family = [];
+//   var parents = person.parents
+//   for(var i = 0; i < people[i].length; i++){
+
+//   }
+// }
+
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
-=======
+}
 function app(people) {
     var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
     switch (searchType.toLowerCase()) {
@@ -100,7 +112,6 @@ function searchByName() {
     var firstName = prompt("What is the person's first name?");
     var lastName = prompt("What is the person's last name?");
     var count = 0;
->>>>>>> 249b181584669a2cfb4370b94a610394f92f3641
 
     var nameMatch = data.filter(function(el) {
         if ((el.firstName.toLowerCase() === firstName.toLowerCase()) && (el.lastName.toLowerCase() === lastName.toLowerCase())) {
@@ -149,9 +160,7 @@ function mainMenu(person, people) {
         alert("Could not find that individual.");
         return app(people); // restart
     }
-
-
-
+}
 
 
     // alerts a list of people
@@ -186,7 +195,6 @@ function mainMenu(person, people) {
     }
 
     // helper function to pass in as default promptFor validation
-    function chars(input) {
+    function chars(input){
         return true; // default validation only
     }
-}
