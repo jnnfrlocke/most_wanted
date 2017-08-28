@@ -39,7 +39,7 @@ function mainMenu(person, people){
     break;
     case "descendants":
     // TODO: get person's descendants
-    displayDescendants(person, people);
+    displayPeople(displayDescendants(person, people));
     break;
     case "restart":
     app(people); // restart
@@ -65,63 +65,59 @@ function displayDescendants(person, people){
     }
   }
   if(kids.length != 0){
-    displayPeople(kids);//display descendant(s) full name
-    return;
+    people = kids;
+    return people;
   }
   else{
-    alert("This person has no descendants");
-    return;
+    var note = {
+    "firstName": "This person has no descendants",
+    "lastName": ""
+    }
+    kids.push(note);
+    people = kids;
+    return people;
   }
 }
 
-// function getFamily(person, people){
-//   //called when user enters "family"
-//   //Need access person's info to get parents and currentSpouse.
-//   //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling. Done in getSibling function.
-//   //Use displayDecendants function to retrieve children.
-//   //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
-//   var family = [];
-//   for(var i = 0; i < person.parents; i++){
-//     family.push(i)
-//   }
-//   family.push(person.currentSpouse); //need to get name of spouse
-//   getSibling(person, people);
-//   if(sibling === undefined){
-//     console.log("no sibling");
-//   }
-//   console.log(family);
-//   displayPeople(family);
-// }
+function getFamily(person, people){
+  //called when user enters "family"
+  //Need access person's info to get parents and currentSpouse.
+  //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling. Done in getSibling function.
+  //Use displayDecendants function to retrieve children.
+  //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
+  var family = [];
+  // for(var i = 0; i < person.parents; i++){
+  //   family.push(i)
+  // }
+  // family.push(person.currentSpouse); //need to get name of spouse
 
-// function getSibling(person, people){
-//   for(var j = 0; j < people.length; j++){
-//     if(person.parents === people[j].parents && person.parents.length != 0){
-//       var sibling = people[j];
-//     }
-//     return sibling;
-//   }
-// }
+  getSibling(person, people, family);
+  console.log(family);
+  displayPeople(family);
+}
+
+function getSibling(person, people, family){
+  var arrParent = person.parents;
+  //var sibling = [];
+    console.log(person);
+  if(arrParent.length === 0){
+    return;
+  }
+  for(var j = 10; j < people.length; j++){
+    var parents = people[j].parents;
+    for(var k = 0; k < parents.length; k++)
+      if(arrParent[0] === parents[k] && person.id != people[j].id){
+        family.push(people[j]);
+      }
+  }
+  return;
+}
 
 function searchByName(people){
   var firstName = promptFor("What is the person's first name?", chars);
   var lastName = promptFor("What is the person's last name?", chars);
 }
 
-function app(people) {
-    var searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
-    switch (searchType) {
-        case 'yes':
-            // TODO: search by name
-            break;
-        case 'no':
-            // TODO: search by traits
-            break;
-        default:
-            app(people); // restart app
-            break;
-    }
-
-}
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people) {
 
@@ -154,41 +150,6 @@ function mainMenu(person, people) {
             return mainMenu(person, people); // ask again
     }
 }
-
-function displayDescendants(person, people) {
-    //this should be called when user enters "descendants"
-    //The last 11 people have parents, so the loop can start at 10 for i
-    //Loops through each object in data array(outter array) and compares "parents" index to "id" of person(inner loop)
-    var kids = [];
-    for (var i = 10; i < people.length; i++) {
-        var parents = people[i].parents //access "parents" array from data.js
-        for (var j = 0; j < parents.length; j++) {
-            if (parents[j] === person.id) {
-                kids.push(people[i]); //save descendant in array
-            }
-        }
-    }
-    if (kids.length != 0) {
-        displayPeople(kids); //display descendant(s) full name
-        return;
-    } else {
-        alert("This person has no descendants");
-        return;
-    }
-}
-
-function getFamily(person, people) {
-    //called when user enters "family"
-    //Need access person's info to get parents and currentSpouse.
-    //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling.
-    //Use displayDecendants function to retrieve children.
-    //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
-    //   var family = [];
-    //   var parents = person.parents
-    //   for(var i = 0; i < people[i].length; i++){
-
-    //   }
-    // }
 
     function searchByName(people) {
         var firstName = promptFor("What is the person's first name?", chars);
@@ -264,28 +225,6 @@ function getFamily(person, people) {
                 return; // stop execution
             default:
                 return mainMenu(person, people); // ask again
-        }
-    }
-
-    function displayDescendants(person, people) {
-        //this should be called when user enters "descendants"
-        //The last 11 people have parents, so the loop can start at 10 for i
-        //Loops through each object in data array(outter array) and compares "parents" index to "id" of person(inner loop)
-        var kids = [];
-        for (var i = 10; i < people.length; i++) {
-            var parents = people[i].parents //access "parents" array from data.js
-            for (var j = 0; j < parents.length; j++) {
-                if (parents[j] === person.id) {
-                    kids.push(people[i]); //save descendant in array
-                }
-            }
-        }
-        if (kids.length != 0) {
-            displayPeople(kids); //display descendant(s) full name
-            return;
-        } else {
-            alert("This person has no descendants");
-            return;
         }
     }
 
@@ -386,4 +325,3 @@ function getFamily(person, people) {
             function chars(input) {
                 return true; // default validation only
             }
-        }
