@@ -3,6 +3,7 @@ Build all of your functions for displaying and gathering information below (GUI)
 */
 
 // =========================================================================================
+// THIS IS GOOD CODE
 // app is the function called to start the entire application
 function app(people) {
     var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
@@ -23,6 +24,7 @@ function app(people) {
 }
 
 // =========================================================================================
+// THIS IS GOOD CODE
 // search by name
 function searchByName() {
     var firstName = prompt("What is the person's first name?");
@@ -56,6 +58,8 @@ function mainMenu(firstName, lastName) {
 }
 
 // =========================================================================================
+// THIS IS GOOD CODE
+// Invoke function to get person's info based on user selection
 function displayOption(firstName, lastName) {
     prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
@@ -82,6 +86,7 @@ function displayOption(firstName, lastName) {
     }
 }
 
+// THIS NOT SO GOOD
 // function displayOption(firstName, lastName) {
 //     prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'.");
 
@@ -125,6 +130,7 @@ function displayPerson(person) {
 }
 
 // =========================================================================================
+// Jared working on
 function displayDescendants(person, people) {
     //this should be called when user enters "descendants"
     //The last 11 people have parents, so the loop can start at 10 for i
@@ -148,6 +154,7 @@ function displayDescendants(person, people) {
 }
 
 // =========================================================================================
+// Jared working on
 // function getFamily(person, people) {
 //called when user enters "family"
 //Need access person's info to get parents and currentSpouse.
@@ -162,7 +169,8 @@ function displayDescendants(person, people) {
 // }
 
 // =========================================================================================
-// alerts a list of people
+// Not working on this yet
+// TODO: alerts a list of people
 function displayPeople(people) {
     alert(people.map(function(person) {
         return person.firstName + " " + person.lastName;
