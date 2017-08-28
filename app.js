@@ -117,7 +117,7 @@ function searchByName() {
         } else {
             count++;
             if (count === data.length) {
-                window.alert(firstName + lastName + " was not found.")
+                window.alert(firstName + " " + lastName + " was not found.")
             }
         }
     })
@@ -126,7 +126,7 @@ function searchByName() {
 
 
 function displayOption(firstName, lastName) {
-    prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+    prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
     switch (displayOption) {
         case "info":
