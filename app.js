@@ -2,22 +2,7 @@
 Build all of your functions for displaying and gathering information below (GUI).
 */
 
-// function that prompts and validates user input - Moved to top so it can be used in app function
-// function promptFor(question, valid) {
-//     do {
-//         var response = prompt(question).trim();
-//     } while (!response || !valid(response));
-//     return response;
-// }
-// error: "valid is not a function" - removing
-
-// helper function to pass into promptFor to validate yes/no answers
-// Moved to top so it can be used in app function
-// function yesNo(input) {
-//     return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
-// }
-// error: "cannot read property 'toLowerCase' of undefined. Removing"
-
+// =========================================================================================
 // app is the function called to start the entire application
 function app(people) {
     var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
@@ -34,23 +19,50 @@ function app(people) {
             app(people); // restart app
             break;
     }
-
+    return;
 }
 
+// =========================================================================================
+// search by name
+function searchByName() {
+    var firstName = prompt("What is the person's first name?");
+    var lastName = prompt("What is the person's last name?");
+    var count = 0;
+
+    var nameMatch = data.filter(function(el) {
+        if ((el.firstName.toLowerCase() === firstName.toLowerCase()) && (el.lastName.toLowerCase() === lastName.toLowerCase())) {
+            displayOption(firstName, lastName);
+            return true;
+        } else {
+            count++;
+            if (count === data.length) {
+                window.alert(firstName + " " + lastName + " was not found.")
+            }
+        }
+    })
+    return;
+}
+
+// =========================================================================================
 // Menu function to call once you find who you are looking for
-function mainMenu(person, people) {
+function mainMenu(firstName, lastName) {
     /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
-    if (!person) {
-        alert("Could not find that individual.");
-        return app(people); // restart
-    }
+    // This is covered by the window.alert in searchByName above - commenting out
+    // if (!person) {
+    //     alert("Could not find that individual.");
+    //     return app(people); // restart
+    // }
+}
 
-    // var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+// =========================================================================================
+function displayOption(firstName, lastName) {
+    prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
     switch (displayOption) {
         case "info":
             // TODO: get person's info
+            displayPerson();
             break;
         case "family":
             // TODO: get person's family
@@ -63,12 +75,56 @@ function mainMenu(person, people) {
             app(people); // restart
             break;
         case "quit":
-            return; // stop execution
+            // return; // stop execution
         default:
-            return mainMenu(person, people); // ask again
+            // return;
+            mainMenu(person, people); // ask again
     }
 }
 
+// function displayOption(firstName, lastName) {
+//     prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'.");
+
+//     switch (displayOption) {
+//         case "info":
+//             // TODO: get person's info
+//             displayPerson(data[1].join);
+//             break;
+//         case "family":
+//             // TODO: get person's family
+//             break;
+//         case "descendants":
+//             // TODO: get person's descendants
+//             displayDescendants(person, people);
+//             break;
+//         case "restart":
+//             app(people); // restart
+//             break;
+//         case "quit":
+//             return; // stop execution
+//         default:
+//             return mainMenu(person, people); // ask again
+//     }
+// }
+// }
+
+// =========================================================================================
+// TODO: Jen is working on
+function displayPerson(person) {
+    // print all of the information about a person:
+    // height, weight, age, name, occupation, eye color.
+    var personInfo = "First Name: " + firstName + "\n";
+    personInfo += "Last Name: " + lastName + "\n";
+
+    //  .toString
+    // TODO: finish getting the rest of the information to display
+    return;
+
+
+    alert(personInfo);
+}
+
+// =========================================================================================
 function displayDescendants(person, people) {
     //this should be called when user enters "descendants"
     //The last 11 people have parents, so the loop can start at 10 for i
@@ -91,6 +147,7 @@ function displayDescendants(person, people) {
     }
 }
 
+// =========================================================================================
 // function getFamily(person, people) {
 //called when user enters "family"
 //Need access person's info to get parents and currentSpouse.
@@ -104,73 +161,10 @@ function displayDescendants(person, people) {
 //   }
 // }
 
-
-function searchByName() {
-    var firstName = prompt("What is the person's first name?");
-    var lastName = prompt("What is the person's last name?");
-    var count = 0;
-
-    var nameMatch = data.filter(function(el) {
-        if ((el.firstName.toLowerCase() === firstName.toLowerCase()) && (el.lastName.toLowerCase() === lastName.toLowerCase())) {
-            displayOption(firstName, lastName);
-            return true;
-        } else {
-            count++;
-            if (count === data.length) {
-                window.alert(firstName + " " + lastName + " was not found.")
-            }
-        }
-    })
-
-}
-
-
-function displayOption(firstName, lastName) {
-    prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
-
-    switch (displayOption) {
-        case "info":
-            // TODO: get person's info
-            displayPerson(data[1].join);
-            break;
-        case "family":
-            // TODO: get person's family
-            break;
-        case "descendants":
-            // TODO: get person's descendants
-            displayDescendants(person, people);
-            break;
-        case "restart":
-            app(people); // restart
-            break;
-        case "quit":
-            return; // stop execution
-        default:
-            return mainMenu(person, people); // ask again
-    }
-}
-
-
-
-// helper function to pass in as default promptFor validation
-function chars(input) {
-    return true; // default validation only
-}
-
+// =========================================================================================
 // alerts a list of people
 function displayPeople(people) {
     alert(people.map(function(person) {
         return person.firstName + " " + person.lastName;
     }).join("\n"));
-}
-
-function displayPerson(person) {
-    // print all of the information about a person:
-    // height, weight, age, name, occupation, eye color.
-    var personInfo = "First Name: " + person.firstName + "\n";
-    personInfo += "Last Name: " + person.lastName + "\n";
-    // TODO: finish getting the rest of the information to display
-
-
-    alert(personInfo);
 }
