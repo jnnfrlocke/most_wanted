@@ -74,16 +74,31 @@ function displayDescendants(person, people){
   }
 }
 
-function getFamily(person, people){
-  //called when user enters "family"
-  //Need access person's info to get parents and currentSpouse.
-  //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling.
-  //Use displayDecendants function to retrieve children.
-  //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
+// function getFamily(person, people){
+//   //called when user enters "family"
+//   //Need access person's info to get parents and currentSpouse.
+//   //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling. Done in getSibling function.
+//   //Use displayDecendants function to retrieve children.
+//   //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
 //   var family = [];
-//   var parents = person.parents
-//   for(var i = 0; i < people[i].length; i++){
+//   for(var i = 0; i < person.parents; i++){
+//     family.push(i)
+//   }
+//   family.push(person.currentSpouse); //need to get name of spouse
+//   getSibling(person, people);
+//   if(sibling === undefined){
+//     console.log("no sibling");
+//   }
+//   console.log(family);
+//   displayPeople(family);
+// }
 
+// function getSibling(person, people){
+//   for(var j = 0; j < people.length; j++){
+//     if(person.parents === people[j].parents && person.parents.length != 0){
+//       var sibling = people[j];
+//     }
+//     return sibling;
 //   }
 // }
 
@@ -239,11 +254,7 @@ function mainMenu(person, people) {
             alert("Could not find that individual.");
             return app(people); // restart
         }
-
-    // helper function to pass in as default promptFor validation
-    function chars(input){
-        return true; // default validation only
-
+    }
 
         // alerts a list of people
         function displayPeople(people) {
@@ -280,4 +291,4 @@ function mainMenu(person, people) {
         function chars(input) {
             return true; // default validation only
         }
-    }
+    
