@@ -136,65 +136,38 @@ function displayOption(firstName, lastName) {
 
 
 
-
-
 // helper function to pass in as default promptFor validation
 function chars(input) {
     return true; // default validation only
-
-    // >>>
-    // >>>
-    // > 7 d3ead8896e166e116d8a7dde324762192a6ee73
-
-    // alerts a list of people
-    function displayPeople(people) {
-        alert(people.map(function(person) {
-            return person.firstName + " " + person.lastName;
-        }).join("\n"));
-    }
-
-    function displayPerson(person) {
-        // print all of the information about a person:
-        // height, weight, age, name, occupation, eye color.
-        var personInfo = "First Name: " + person.firstName + "\n";
-        personInfo += "Last Name: " + person.lastName + "\n";
-        // TODO: finish getting the rest of the information to display
-
-
-        alert(personInfo);
-    }
-
-    // function that prompts and validates user input
-    function promptFor(question, valid) {
-        do {
-            var response = prompt(question).trim();
-        } while (!response || !valid(response));
-        return response;
-    }
-
-    // helper function to pass into promptFor to validate yes/no answers
-    function yesNo(input) {
-        return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
-    }
-
-    <<
-    <<
-    <<
-    <
-    HEAD
-    // helper function to pass in as default promptFor validation
-    function chars(input) {
-        return true; // default validation only
-    }
-
-    ===
-    ===
-    =
-    // helper function to pass in as default promptFor validation
-    function chars(input) {
-        return true; // default validation only
-    }
 }
-// >>>
-// >
-// 7 d3ead8896e166e116d8a7dde324762192a6ee73
+
+// alerts a list of people
+function displayPeople(people) {
+    alert(people.map(function(person) {
+        return person.firstName + " " + person.lastName;
+    }).join("\n"));
+}
+
+function displayPerson(person) {
+    // print all of the information about a person:
+    // height, weight, age, name, occupation, eye color.
+    var personInfo = "First Name: " + person.firstName + "\n";
+    personInfo += "Last Name: " + person.lastName + "\n";
+    // TODO: finish getting the rest of the information to display
+
+
+    alert(personInfo);
+}
+
+// function that prompts and validates user input
+function promptFor(question, valid) {
+    do {
+        var response = prompt(question).trim();
+    } while (!response || !valid(response));
+    return response;
+}
+
+// helper function to pass into promptFor to validate yes/no answers
+function yesNo(input) {
+    return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
+}
