@@ -30,7 +30,7 @@ function mainMenu(person, people) {
         return app(people); // restart
     }
 
-    var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
+    // var displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
     switch (displayOption) {
         case "info":
@@ -115,7 +115,7 @@ function displayOption(firstName, lastName) {
     switch (displayOption) {
         case "info":
             // TODO: get person's info
-            // displayPerson(data[1].join);
+            displayPerson(data[1].join);
             break;
         case "family":
             // TODO: get person's family
@@ -135,29 +135,7 @@ function displayOption(firstName, lastName) {
 }
 
 
-function displayOption(firstName, lastName) {
-    prompt("Found " + firstName + " " + lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
-    switch (displayOption) {
-        case "info":
-            // TODO: get person's info
-            displayPerson(data[1].join);
-            break;
-        case "family":
-            // TODO: get person's family
-            break;
-        case "descendants":
-            // TODO: get person's descendants
-            break;
-        case "restart":
-            app(people); // restart
-            break;
-        case "quit":
-            return; // stop execution
-        default:
-            return mainMenu(person, people); // ask again
-    }
-}
 
 
 // helper function to pass in as default promptFor validation
