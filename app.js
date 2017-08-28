@@ -2,6 +2,22 @@
 Build all of your functions for displaying and gathering information below (GUI).
 */
 
+// function that prompts and validates user input - Moved to top so it can be used in app function
+// function promptFor(question, valid) {
+//     do {
+//         var response = prompt(question).trim();
+//     } while (!response || !valid(response));
+//     return response;
+// }
+// error: "valid is not a function" - removing
+
+// helper function to pass into promptFor to validate yes/no answers
+// Moved to top so it can be used in app function
+// function yesNo(input) {
+//     return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
+// }
+// error: "cannot read property 'toLowerCase' of undefined. Removing"
+
 // app is the function called to start the entire application
 function app(people) {
     var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
@@ -157,17 +173,4 @@ function displayPerson(person) {
 
 
     alert(personInfo);
-}
-
-// function that prompts and validates user input
-function promptFor(question, valid) {
-    do {
-        var response = prompt(question).trim();
-    } while (!response || !valid(response));
-    return response;
-}
-
-// helper function to pass into promptFor to validate yes/no answers
-function yesNo(input) {
-    return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
