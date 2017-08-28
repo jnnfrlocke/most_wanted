@@ -200,8 +200,8 @@ function getFamily(person, people){
 
   getSibling(person, people, family);
   console.log(family);
-  getDescendants(person, people);
-
+  var children = getDescendants(person, people);
+  var family = family.concat(children); //combines children array to family arrary
   displayPeople(family);
 }
 
@@ -215,7 +215,7 @@ function getSibling(person, people, family){
   for(var j = 10; j < people.length; j++){
     var parents = people[j].parents;
     for(var k = 0; k < parents.length; k++)
-      if(arrParent[0] === parents[k] && person.id != people[j].id){
+      if(arrParent[0] === parents[k] && person.id != people[j].id || arrParent[1] === parents[k] && person.id != people[j].id){
         family.push(people[j]);
       }
   }
