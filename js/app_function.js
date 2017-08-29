@@ -18,3 +18,8 @@ function app(people) {
     }
     return;
 }
+
+// helper function to pass in as default promptFor validation
+function chars(input) {
+    return true; // default validation only
+}
