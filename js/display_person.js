@@ -1,8 +1,19 @@
 // =========================================================================================
 // TODO: Jen is working on
-function displayPerson(person) {
+function displayPerson(personId) {
     // print all of the information about a person:
     // height, weight, age, name, occupation, eye color.
+    var person = data.filter(function(el) {
+        if (el.id === personId) {
+            window.alert(el);
+        }
+
+    })
+
+
+
+
+
     var personInfo = "First Name: " + firstName + "\n";
     personInfo += "Last Name: " + lastName + "\n";
     //  .toString

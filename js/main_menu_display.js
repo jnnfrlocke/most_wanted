@@ -1,14 +1,14 @@
 // =========================================================================================
 // Menu function to call once you find who you are looking for
-function mainMenu(firstName, lastName) {
-    /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
+// function mainMenu(firstName, lastName) {
+/* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
-    // This is covered by the window.alert in searchByName above - commenting out
-    // if (!person) {
-    //     alert("Could not find that individual.");
-    //     return app(people); // restart
-    // }
-}
+// This is covered by the window.alert in searchByName above - commenting out
+// if (!person) {
+//     alert("Could not find that individual.");
+//     return app(people); // restart
+// }
+// }
 
 // From github
 // Menu function to call once you find who you are looking for
@@ -26,6 +26,7 @@ function mainMenu(person, people) {
     switch (displayOption) {
         case "info":
             // TODO: get person's info
+            displayPerson(person.id); // Call to displayPerson, sending this person's id
             break;
         case "family":
             // TODO: get person's family
@@ -44,14 +45,6 @@ function mainMenu(person, people) {
     }
 }
 
-
-
-
-
-
-
-
-
 // ======================================================================================
 // THIS IS GOOD CODE
 // Invoke function to get person's info based on user selection
@@ -61,8 +54,7 @@ function displayOption(firstName, lastName) {
     switch (displayOption) {
         case "info":
             // TODO: get person's info
-            displayPerson(person);
-            // displayPerson(data[1].join);
+            displayPerson(person.id); // Call to displayPerson, sending this person's id
             break;
         case "family":
             // TODO: get person's family
