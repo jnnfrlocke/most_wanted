@@ -8,7 +8,7 @@ function searchByName() {
 
     var nameMatch = data.filter(function(el) {
         if ((el.firstName.toLowerCase() === firstName.toLowerCase()) && (el.lastName.toLowerCase() === lastName.toLowerCase())) {
-            displayOption(firstName, lastName);
+            displayOption(el);
             return true;
         } else {
             count++;

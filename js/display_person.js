@@ -3,9 +3,10 @@
 function displayPerson(personId) {
     // print all of the information about a person:
     // height, weight, age, name, occupation, eye color.
+    // window.alert(personId);
     var person = data.filter(function(el) {
         if (el.id === personId) {
-            window.alert(el);
+            window.alert("First Name: " + el.firstName + "\n" + "Last Name: " + el.lastName + "\n" + "Gender: " + el.gender);
         }
 
     })
