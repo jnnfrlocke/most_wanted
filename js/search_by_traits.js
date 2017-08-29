@@ -1,6 +1,7 @@
    
 //Jared is working on
 function searchByTraits(people){
+	var saved = [];
 	var search = window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase();
 	if (search === "yes"){
 		var traits = window.prompt("Do you know the person's 'age', 'height', 'weight', 'occupation', or 'eyecolor'? Type the trait(s) you want to search by or 'restart' or 'quit'").toLowerCase();
@@ -12,17 +13,17 @@ function searchByTraits(people){
 		case "age":
 		break;
 		case "height":
-		heightCheck(people);
+		heightCheck(people, saved);
 		//checkHeight(people);
 		break;
 		case "weight":
-		weightCheck(people);
+		weightCheck(people, saved);
 		break;
 		case "occupation":
-		occupationCheck(people);
+		occupationCheck(people, saved);
 		break;
 		case "eyecolor":
-		eyecolorCheck(people);
+		eyecolorCheck(people, saved);
 		break;
 		case "restart":
 		app(people); // restart
@@ -35,36 +36,97 @@ function searchByTraits(people){
 		searchByTraits(people);
 		break;
 	}
+	console.log(saved);
+	var narrowSearch = window.prompt("If you want to narrow your search even more please enter 'yes', otherwise 'no' to start from the beginning.").toLowerCase();;
+	if (narrowSearch === "yes"){
+		searchByTraits(saved);
+	}
+	else if(narrowSearch === "no"){
+		app(people);
+	}
+	else{
+		alert("Invalid Repsonse.");
+		app(people);
+	}
 }
 
-function heightCheck(people){
+function heightCheck(people, saved){
 	var enteredHeight = parseInt(prompt("How tall are they in inches?"));
 	var rightHeight = people.filter(function (el) {
     return (el.height === enteredHeight);
 	});
-	displayPeople(rightHeight);
+	if(rightHeight.length === 0){
+		var noResult = window.prompt("Search inconclusive. Would you like to start over? Enter 'yes' or 'no'.");
+		if (noResult === "yes") {
+			searchByTraits(people);
+		}
+		else{
+			app(people);
+		}
+	}
+	else{
+		displayPeople(rightHeight);
+		saved.splice(0, saved.length, ...rightHeight); //Replaces items in saved array with what items(people) were filtered out.
+	}
 }
 
-function weightCheck(people){
+function weightCheck(people, saved){
 	var enteredWeight = parseInt(prompt("How much do they weight in pounds?"));
 	var rightWeight = people.filter(function (el) {
     return (el.weight === enteredWeight);
 	});
-	displayPeople(rightWeight);
+	if(rightWeight.length === 0){
+	var noResult = window.prompt("Search inconclusive. Would you like to start over? Enter 'yes' or 'no'.");
+		if (noResult === "yes") {
+			searchByTraits(people);
+		}
+		else{
+			app(people);
+		}
+	}
+	else{
+		displayPeople(rightWeight);
+		saved.splice(0, saved.length, ...rightWeight); //Replaces items in saved array with what items(people) were filtered out.
+	}
 }
 
-function occupationCheck(people){
+function occupationCheck(people, saved){
 	var enteredOccupation = prompt("What is their occupation?");
 	var rightOccupation = people.filter(function (el) {
     return (el.occupation === enteredOccupation);
 	});
-	displayPeople(rightOccupation);
+	if(rightOccupation.length === 0){
+		var noResult = window.prompt("Search inconclusive. Would you like to start over? Enter 'yes' or 'no'.");
+		if (noResult === "yes") {
+			searchByTraits(people);
+		}
+		else{
+			app(people);
+		}
+	}
+	else{
+		displayPeople(rightOccupation);
+		saved.splice(0, saved.length, ...rightOccupation); //Replaces items in saved array with what items(people) were filtered out.
+	}
 }
 
-function eyecolorCheck(people){
+
+function eyecolorCheck(people, saved){
 	var enteredEyecolor = prompt("What is their eyecolor?");
 	var rightEyecolor = people.filter(function (el) {
     return (el.eyeColor === enteredEyecolor);
 	});
-	displayPeople(rightEyecolor);
+	if(rightEyecolor.length === 0){
+		var noResult = window.prompt("Search inconclusive. Would you like to start over? Enter 'yes' or 'no'.");
+		if (noResult === "yes") {
+			searchByTraits(people);
+		}
+		else{
+			app(people);
+		}
+	}
+	else{
+		displayPeople(rightEyecolor);
+		saved.splice(0, saved.length, ...rightEyecolor); //Replaces items in saved array with what items(people) were filtered out.
+	}
 }
