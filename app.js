@@ -221,3 +221,7 @@ function getSibling(person, people, family){
   }
   return;
 }
+
+function getParents(person, people){
+
+}
