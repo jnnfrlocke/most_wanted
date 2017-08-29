@@ -13,7 +13,7 @@ function displayPerson(personId) {
 }
 
 
-
+}
 
 
 //     var personInfo = "First Name: " + firstName + "\n";
