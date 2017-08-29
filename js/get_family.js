@@ -2,21 +2,16 @@
 // Jared working on
 function getFamily(person, people) {
     //called when user enters "family"
-    //Need access person's info to get parents and currentSpouse.
     //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling. Done in getSibling function.
-    //Use displayDecendants function to retrieve children.
+    //Use getDecendants function to retrieve children.
     //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
     var family = [];
-    // for(var i = 0; i < person.parents; i++){
-    //   family.push(i)
-    // }
-    // family.push(person.currentSpouse); //need to get name of spouse
 
     getSibling(person, people, family);
-    console.log(family);
     var children = getDescendants(person, people);
     var family = family.concat(children); //combines children array to family arrary
     getParents(person, people, family);
+    getCurrentSpouse(person, people, family);
     displayPeople(family);
 }
 
@@ -44,6 +39,20 @@ function getParents(person, people, family){
     for (var i = 0; i < people.length; i++) {
         var folks = people[i].id;
             if (parents[0] === folks || parents[1] === folks) {
+                family.push(people[i]);
+            }
+    }
+    return;
+}
+
+function getCurrentSpouse(person, people, family){
+    var spouse = person.currentSpouse;
+    if (spouse.length === 0) {
+        return;
+    }
+    for (var i = 0; i < people.length; i++) {
+        var betterHalf = people[i].id;
+            if (spouse === betterHalf) {
                 family.push(people[i]);
             }
     }
