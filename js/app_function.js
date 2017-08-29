@@ -8,7 +8,8 @@ function app(people) {
             searchByName();
             break;
         case 'no':
-            window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase;
+            //window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase;
+            searchByTraits(people);
             // TODO: search by traits
             break;
         default:
