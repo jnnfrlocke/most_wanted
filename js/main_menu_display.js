@@ -1,7 +1,7 @@
 // ======================================================================================
 // THIS IS GOOD CODE
 // Invoke function to get person's info based on user selection
-function displayOption(person) {
+function displayOption(person, people) {
     var option = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
 
     switch (option) {
