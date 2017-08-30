@@ -10,6 +10,7 @@ function displayOption(person) {
             break;
         case "family":
             // TODO: get person's family
+            getFamily(person.id, people);
             break;
         case "descendants":
             // TODO: get person's descendants
