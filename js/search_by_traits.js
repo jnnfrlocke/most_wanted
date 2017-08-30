@@ -54,7 +54,7 @@
        var dob = [];
        var getDob = data.filter(function(el) {
            for (i = 0; i < data.length; i++) {
-               dob(i) = el.dob;
+               dob(i) = el.dob(i);
                if (dob(i) === el.dob(i)) {
                    dob.push(el.dob);
                }
