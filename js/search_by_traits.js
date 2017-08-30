@@ -4,7 +4,8 @@
        if (search === "yes") {
            var traits = window.prompt("Do you know the person's 'age', 'height', 'weight', 'occupation', or 'eyecolor'? Type the trait(s) you want to search by or 'restart' or 'quit'").toLowerCase();
        } else if (search === "no") {
-           app(people);
+           alert("Unfortunately you cannot be helped with the given information.");
+           return;
        }
        switch (traits) {
            case "age":
@@ -34,14 +35,16 @@
                searchByTraits(people);
                break;
        }
-       var narrowSearch = window.prompt("If you want to narrow your search even more please enter 'yes', otherwise 'no' to start from the beginning.").toLowerCase();;
+       var narrowSearch = window.prompt("If you want to narrow your search even more please enter 'yes', otherwise 'no' to exit the application.").toLowerCase();;
        if (narrowSearch === "yes") {
            searchByTraits(saved);
        } else if (narrowSearch === "no") {
-           app(people);
+           alert("Goodbye");
+           return;
        } else {
            alert("Invalid Repsonse.");
            app(people);
+           return;
        }
    }
 
