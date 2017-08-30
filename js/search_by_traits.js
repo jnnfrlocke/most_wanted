@@ -1,4 +1,3 @@
-   //Jared is working on
    function searchByTraits(people) {
        var saved = [];
        var search = window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase();
