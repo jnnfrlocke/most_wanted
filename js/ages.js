@@ -1,46 +1,27 @@
-var dobs = [];
+// var dobs = [];
 
-function getdob(data, dob) {
-    dob = [data.dob];
-    dobs.push(dob);
+function getDatesOfBirth() {
+    //create empty array
+    var datesOfBirth = [];
+
+    // set i
+    var i = 0
+        // function getDob() {
+    for (i = 0; i < data.length; i++) {
+        var dobs = (data[i].dob);
+        datesOfBirth.push(dobs);
+    }
+    // }
+    console.log(datesOfBirth);
+
+    // loop to get age for each person
+    ages = [];
+    var j = 0;
+    for (j = 0; j < datesOfBirth.length; j++) {
+        var age = getAge(datesOfBirth[j]);
+        ages.push(age);
+    }
+    console.log(ages)
+
+    // verifyAge(ages);
 }
-console.log(dobs);
-
-var ages = new Map([el]) {
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function getAge(dateString) {
-//     for (i = 0; i < data.length; i++) {
-//     var today = new Date();
-//     var birthDate = new Date(dateString);
-//     var age = today.getFullYear() - birthDate.getFullYear();
-//     var m = today.getMonth() - birthDate.getMonth();
-//     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-//         age--;
-//     }
-//     return age;
-// }
-// }
