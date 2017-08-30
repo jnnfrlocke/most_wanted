@@ -9,9 +9,8 @@
        }
        switch (traits) {
            case "age":
-               var age = getAge(data.age);
-               //call to getAge function in get_age.js
-               saved.push(age);
+               ageCheck();
+
                break;
            case "height":
                heightCheck(people, saved);
@@ -47,6 +46,25 @@
            alert("Invalid Repsonse.");
            app(people);
        }
+   }
+
+   function ageCheck() {
+       var enteredAge = parseInt(prompt("What is this person's age?"));
+       var age;
+       var dob = [];
+       var getDob = data.filter(function(el) {
+           for (i = 0; i < data.length; i++) {
+               dob(i) = el.dob;
+               if (dob(i) === el.dob(i)) {
+                   dob.push(el.dob);
+               }
+           }
+       })
+       age = getAge(dob);
+       if (enteredAge === age) {
+           window.alert(people + " are " + enteredAge + ".")
+       }
+       console.log()
    }
 
    function heightCheck(people, saved) {

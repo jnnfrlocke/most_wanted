@@ -6,7 +6,7 @@ function displayOption(person) {
 
     switch (option) {
         case "info":
-            displayPerson(person.id);
+            displayPerson(person);
             break;
         case "family":
             // TODO: get person's family
