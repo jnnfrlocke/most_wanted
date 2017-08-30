@@ -1,4 +1,3 @@
-// FINISHED =========================================================================================
 function app(people) {
     var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
     switch (searchType.toLowerCase()) {
@@ -9,8 +8,8 @@ function app(people) {
             searchByTraits(people);
             break;
         default:
-            window.alert("Please enter a valid answer."); //
-            app(people); // restart app
+            window.alert("Please enter a valid answer.");
+            app(people);
             break;
     }
     return;

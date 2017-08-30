@@ -1,4 +1,3 @@
-   //Jared is working on
    function searchByTraits(people) {
        var saved = [];
        var search = window.prompt("Would you like to search using different characteristics? Please enter 'yes' or 'no'.").toLowerCase();
@@ -14,7 +13,6 @@
                break;
            case "height":
                heightCheck(people, saved);
-               //checkHeight(people);
                break;
            case "weight":
                weightCheck(people, saved);
@@ -26,17 +24,16 @@
                eyecolorCheck(people, saved);
                break;
            case "restart":
-               app(people); // restart
+               app(people);
                break;
            case "quit":
-               // return; // stop execution
+               return;
                break;
            default:
                window.alert("Please enter a valid answer.");
                searchByTraits(people);
                break;
        }
-       console.log(saved);
        var narrowSearch = window.prompt("If you want to narrow your search even more please enter 'yes', otherwise 'no' to start from the beginning.").toLowerCase();;
        if (narrowSearch === "yes") {
            searchByTraits(saved);
@@ -99,7 +96,7 @@
            }
        } else {
            displayPeople(rightWeight);
-           saved.splice(0, saved.length, ...rightWeight); //Replaces items in saved array with what items(people) were filtered out.
+           saved.splice(0, saved.length, ...rightWeight);
        }
    }
 
@@ -117,7 +114,7 @@
            }
        } else {
            displayPeople(rightOccupation);
-           saved.splice(0, saved.length, ...rightOccupation); //Replaces items in saved array with what items(people) were filtered out.
+           saved.splice(0, saved.length, ...rightOccupation);
        }
    }
 
@@ -136,6 +133,6 @@
            }
        } else {
            displayPeople(rightEyecolor);
-           saved.splice(0, saved.length, ...rightEyecolor); //Replaces items in saved array with what items(people) were filtered out.
+           saved.splice(0, saved.length, ...rightEyecolor);
        }
    }

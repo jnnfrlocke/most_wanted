@@ -1,15 +1,9 @@
-// =========================================================================================
-// Jared working on
 function getFamily(person, people) {
-    //called when user enters "family"
-    //Need to loop thru each object in people(data) to compare their parent's with the person, to get sibling. Done in getSibling function.
-    //Use getDecendants function to retrieve children.
-    //Throwing parents,sibling, spouse, and childen in an array and getting full name of each of them.
     var family = [];
 
     getSibling(person, people, family);
     var children = getDescendants(person, people);
-    var family = family.concat(children); //combines children array to family arrary
+    var family = family.concat(children);
     getParents(person, people, family);
     getCurrentSpouse(person, people, family);
     displayPeople(family);
