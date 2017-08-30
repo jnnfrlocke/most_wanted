@@ -47,22 +47,25 @@
 
    function ageCheck() {
        var enteredAge = parseInt(prompt("What is this person's age?"));
-       var age;
-       var dob = [];
-       var getDob = data.filter(function(el) {
-           for (i = 0; i < data.length; i++) {
-               dob(i) = el.dob(i);
-               if (dob(i) === el.dob(i)) {
-                   dob.push(el.dob);
-               }
+       getDatesOfBirth();
+       var sameAge = [];
+
+       ages.filter(function(yrs) {
+           if (yrs === enteredAge) {
+               var indexMatch = ages.indexOf();
+               sameAge = (data(indexMatch).firstName) + " " + (data(indexMatch).lastName);
            }
        })
-       age = getAge(dob);
-       if (enteredAge === age) {
-           window.alert(people + " are " + enteredAge + ".")
-       }
-       console.log()
+
+       //    for (i = 0; i < ages.length; i++) {
+       //        if (enteredAge === ages[i]) {
+       //            var correctAges = saved.push(data.firstName(i), data.lastName(i));
+       //        } else
+       //            window.alert("There is no one in our database of that age.")
+       //    }
+       console.log(saved);
    }
+
 
    function heightCheck(people, saved) {
        var enteredHeight = parseInt(prompt("How tall are they in inches?"));
