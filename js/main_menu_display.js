@@ -10,17 +10,17 @@ function displayOption(person) {
             break;
         case "family":
             // TODO: get person's family
+            getFamily(person, people);
             break;
         case "descendants":
             // TODO: get person's descendants
-            displayDescendants(person, people);
-            // displayPeople(getDescendants(person, people));
+            displayPeople(getDescendants(person, people));
             break;
         case "restart":
             app(people); // restart
             break;
         case "quit":
-            // return; // stop execution
+            //return; // stop execution
             break;
         default:
             // return;
