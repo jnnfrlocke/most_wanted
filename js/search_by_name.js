@@ -1,6 +1,4 @@
-// =========================================================================================
-// THIS IS GOOD CODE
-// search by name
+// FINISHED =========================================================================================
 function searchByName() {
     var firstName = prompt("What is the person's first name?");
     var lastName = prompt("What is the person's last name?");
