@@ -1,34 +1,45 @@
 // =========================================================================================
-// TODO: Jen is working on
+
 function displayPerson(personId) {
-    // print all of the information about a person:
-    // height, weight, age, name, occupation, eye color.
-    // TODO: function to get age
-    // TODO: function to display spouse name from id
+
     var person = data.filter(function(el) {
         if (el.id === personId) {
-            window.alert("First Name: " + el.firstName + "\n" + "Last Name: " + el.lastName + "\n" + "Gender: " + el.gender + "\n" + "Age: " + getAge(personId) + "\n" + "Height: " + el.height + "\n" + "Weight: " + el.weight + "\n" + "Eye Color: " + el.eyeColor + "\n" + "Occupation: " + el.occupation + "\n" + "Parents: " + el.parents + "\n" + "Current Spouse: " + el.currentSpouse);
+            var calcAge = getAge(el.dob);
+            var spouseName = getSpouse(el.currentSpouse);
+            var parentNames = getPersonParents(el.parents);
+            window.alert("First Name: " + el.firstName + "\n" + "Last Name: " + el.lastName + "\n" + "Gender: " + el.gender + "\n" + "Age: " + calcAge + "\n" + "Height: " + el.height + " inches" + "\n" + "Weight: " + el.weight + " pounds" + "\n" + "Eye Color: " + el.eyeColor + "\n" + "Occupation: " + el.occupation + "\n" + "Parents: " + parentNames + "\n" + "Current Spouse: " + spouseName);
         }
     })
+
+    function getSpouse(spouseId) {
+        var spouse;
+        data.filter(function(el) {
+            if (el.id === spouseId) {
+                spouse = el.firstName + " " + el.lastName;
+            }
+        })
+
+        if (!spouse) {
+            spouse = "This person does not currently have a spouse."
+        }
+        return spouse;
+    }
+
+    function getPersonParents(parentsId) {
+        var parentNames = [];
+        var i = 0;
+        while (i < parentsId.length) {
+            data.filter(function(el) {
+                if (el.id === parentsId[i]) {
+                    i++;
+                    parentNames.push(" " + el.firstName + " " + el.lastName);
+                }
+            })
+        }
+
+        if (parentNames.length === 0) {
+            parentNames = "This person's parents have not been identified."
+        }
+        return parentNames;
+    }
 }
-
-
-}
-
-
-//     var personInfo = "First Name: " + firstName + "\n";
-//     personInfo += "Last Name: " + lastName + "\n";
-//     //  .toString
-//     // TODO: finish getting the rest of the information to display
-//     return;
-//     alert(personInfo);
-// }
-
-// function displayPerson(person) {
-//     // print all of the information about a person:
-//     // height, weight, age, name, occupation, eye color.
-//     var personInfo = "First Name: " + person.firstName + "\n";
-//     personInfo += "Last Name: " + person.lastName + "\n";
-//     // TODO: finish getting the rest of the information to display
-//     alert(personInfo);
-// }
