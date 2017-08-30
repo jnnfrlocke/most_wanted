@@ -1,4 +1,3 @@
-// FINISHED =========================================================================================
 function app(people) {
     var searchType = prompt("Do you know the name of the person you are looking for? Enter 'yes' or 'no'.");
     switch (searchType.toLowerCase()) {
