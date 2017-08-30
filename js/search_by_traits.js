@@ -77,18 +77,8 @@
         	return (el.height === enteredHeight);
        	});
        	if (rightHeight.length === 0) {
-           	var noResult = window.prompt("Search inconclusive. Would you like to try again? Enter 'yes' or 'no'.");
-           	if (noResult === "yes") {
-            	searchByTraits(people);
-           	} 
-           	else if(noResult === "no"){
-           		alert("Goodbye");
-           		throw new Error("Something went badly wrong!");
-           	}
-           	else{
-           		alert("Invalid Repsonse.");
-           		return;
-           	}
+           	alert("Search inconclusive. Ending execution.");
+           	throw new Error("End Execution.");
         }	 
    		else {
         	displayPeople(rightHeight);
@@ -102,18 +92,8 @@
         	return (el.weight === enteredWeight);
        	});
        	if (rightWeight.length === 0) {
-           	var noResult = window.prompt("Search inconclusive. Would you like to try again? Enter 'yes' or 'no'.");
-           	if (noResult === "yes") {
-            	searchByTraits(people);
-           	} 
-           	else if(noResult === "no"){
-           		alert("Goodbye");
-           		throw new Error("Something went badly wrong!");
-           	}
-           	else{
-           		alert("Invalid Repsonse.");
-           		return;
-           	}
+           		alert("Search inconclusive. Ending execution.");
+           		throw new Error("End Execution.");
         }
        	else {
            	displayPeople(rightWeight);
@@ -127,19 +107,9 @@
            	return (el.occupation === enteredOccupation);
        	});
        	if (rightOccupation.length === 0) {
-           	var noResult = window.prompt("Search inconclusive. Would you like to try again? Enter 'yes' or 'no'.");
-           	if (noResult === "yes") {
-            	searchByTraits(people);
-           	} 
-           	else if(noResult === "no"){
-           		alert("Goodbye");
-           		throw new Error("Something went badly wrong!");
-           	}
-           	else{
-           		alert("Invalid Repsonse.");
-           		return;
-           	}
-        } 
+           	alert("Search inconclusive. Ending execution.");
+           	throw new Error("End Execution.");
+        }
        	else {
            	displayPeople(rightOccupation);
            	saved.splice(0, saved.length, ...rightOccupation);
@@ -153,18 +123,8 @@
            	return (el.eyeColor === enteredEyecolor);
        	});
        	if (rightEyecolor.length === 0) {
-           	var noResult = window.prompt("Search inconclusive. Would you like to try again? Enter 'yes' or 'no'.");
-           	if (noResult === "yes") {
-            	searchByTraits(people);
-           	} 
-           	else if(noResult === "no"){
-           		alert("Goodbye");
-           		throw new Error("Something went badly wrong!");
-           	}
-           	else{
-           		alert("Invalid Repsonse.");
-           		return;
-           	}
+           	alert("Search inconclusive. Ending execution.");
+           	throw new Error("End Execution.");
         } 
        	else {
            	displayPeople(rightEyecolor);
