@@ -9,8 +9,8 @@ function app(people) {
             searchByTraits(people);
             break;
         default:
-            window.alert("Please enter a valid answer."); //
-            app(people); // restart app
+            window.alert("Please enter a valid answer.");
+            app(people);
             break;
     }
     return;
