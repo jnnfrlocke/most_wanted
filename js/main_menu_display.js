@@ -9,7 +9,7 @@ function displayOption(person, people) {
             getFamily(person, people);
             break;
         case "descendants":
-            displayPeople(getDescendants(person, people));
+            getDescendants(person, people);
             break;
         case "restart":
             app(people);
