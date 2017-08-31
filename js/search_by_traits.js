@@ -13,7 +13,6 @@
    	    switch (traits) {
    	        case "age":
    	            ageCheck();
-
    	            break;
    	        case "height":
    	            heightCheck(people, saved);
@@ -55,20 +54,16 @@
    	    getDatesOfBirth();
    	    var sameAge = [];
 
+   	    var i = 0;
    	    ages.filter(function(yrs) {
    	        if (yrs === enteredAge) {
-   	            var indexMatch = ages.indexOf();
-   	            sameAge = (data(indexMatch).firstName) + " " + (data(indexMatch).lastName);
+   	            sameAge.push((data[i].firstName) + " " + (data[i].lastName));
    	        }
+   	        i++;
    	    })
-
-   	    //    for (i = 0; i < ages.length; i++) {
-   	    //        if (enteredAge === ages[i]) {
-   	    //            var correctAges = saved.push(data.firstName(i), data.lastName(i));
-   	    //        } else
-   	    //            window.alert("There is no one in our database of that age.")
-   	    //    }
-   	    console.log(saved);
+   	    console.log(sameAge);
+   	    window.alert("These people are all " + enteredAge + ":\n" + sameAge.join("\n"));
+   	    return sameAge;
    	}
 
    	function heightCheck(people, saved) {
