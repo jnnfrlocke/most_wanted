@@ -61,7 +61,6 @@
    	        }
    	        i++;
    	    })
-   	    console.log(sameAge);
    	    window.alert("These people are all " + enteredAge + ":\n" + sameAge.join("\n"));
    	    return sameAge;
    	}

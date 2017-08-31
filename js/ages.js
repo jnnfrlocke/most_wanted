@@ -5,7 +5,6 @@ function getDatesOfBirth() {
         var dobs = (data[i].dob);
         datesOfBirth.push(dobs);
     }
-    console.log(datesOfBirth);
 
     ages = [];
     var j = 0;
@@ -13,5 +12,4 @@ function getDatesOfBirth() {
         var age = getAge(datesOfBirth[j]);
         ages.push(age);
     }
-    console.log(ages)
 }
