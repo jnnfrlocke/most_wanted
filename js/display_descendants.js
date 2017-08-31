@@ -1,23 +1,18 @@
 function getDescendants(person, people) {
-    var kids = [];
-    for (var i = 0; i < people.length; i++) {
-        var parents = people[i].parents
-        for (var j = 0; j < parents.length; j++) {
-            if (parents[j] === person.id) {
-                kids.push(people[i]);
-            }
+    var children = people.filter(function(el) {
+        if (el.parents[0] === person.id || el.parents[1] === person.id) {
+            return true;
         }
+    })
+
+    if (children.length === 0) {
+        return;
     }
-    if (kids.length != 0) {
-        people = kids;
-        return people;
-    } else {
-        var note = {
-            "firstName": "This person has no descendants",
-            "lastName": ""
-        }
-        kids.push(note);
-        people = kids;
-        return people;
+    for (var i = 0; i < children.length; i++) {
+        var descendants = [];
+        descendants = (getDescendants(children[i], people));
     }
+    children.concat(descendants);
+    displayPeople(children);
+    return children;
 }
