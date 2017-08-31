@@ -76,12 +76,12 @@
    	        throw new Error("End Execution.");
    	    } else {
    	        displayPeople(rightHeight);
-   	        saved.splice(0, saved.length, ...rightHeight); //Replaces items in saved array with what items(people) were filtered out.
+   	        saved.splice(0, saved.length, ...rightHeight);
    	    }
    	}
 
    	function weightCheck(people, saved) {
-   	    var enteredWeight = parseInt(prompt("How much do they weight in pounds?"));
+   	    var enteredWeight = parseInt(prompt("How much do they weigh in pounds?"));
    	    var rightWeight = people.filter(function(el) {
    	        return (el.weight === enteredWeight);
    	    });

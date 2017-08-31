@@ -1,4 +1,3 @@
-// FINISHED ============================================================
 function displayPerson(personId) {
 
     var person = data.filter(function(el) {

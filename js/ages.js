@@ -1,5 +1,3 @@
-// var dobs = [];
-
 function getDatesOfBirth() {
     var datesOfBirth = [];
     var i = 0

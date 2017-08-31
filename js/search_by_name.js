@@ -1,4 +1,3 @@
-// FINISHED =========================================================================================
 function searchByName(people) {
     var firstName = prompt("What is the person's first name?");
     var lastName = prompt("What is the person's last name?");

@@ -1,4 +1,3 @@
-// FINISHED ============================================================
 function getAge(dateString) {
     var today = new Date();
     var birthDate = new Date(dateString);

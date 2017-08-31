@@ -14,9 +14,3 @@ function app(people) {
     }
     return;
 }
-
-// UNUSED STARTER CODE
-// // helper function to pass in as default promptFor validation
-// function chars(input) {
-//     return true; // default validation only
-// }
